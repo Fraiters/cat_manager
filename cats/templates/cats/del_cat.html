@@ -1,0 +1,12 @@
+{% extends 'cats/base.html' %}
+
+{% block content %}
+<h1>{{ title }}</h1>
+
+<form action="{% url 'del_cat' slug %}" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <p>Вы уверены, что хотите удалить запись "{{ name }}"?</p>
+
+    <button type="submit">Подтвердить</button>
+</form>
+{% endblock content %}

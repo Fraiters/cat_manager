@@ -1,0 +1,18 @@
+{% extends 'cats/base.html' %}
+
+{% block content %}
+<h1>{{ title }}</h1>
+
+<ul>
+    {% for post in posts %}
+    <li>
+        <h2>
+            <a href="{{ post.get_absolute_url }}">
+                {{ post.name }}
+            </a>
+        </h2>
+        <hr>
+    </li>
+    {% endfor %}
+</ul>
+{% endblock content %}

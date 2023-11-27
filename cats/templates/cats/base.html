@@ -1,0 +1,38 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ title }}</title>
+    <link type="text/css" href="{% static 'cats/css/styles.css' %}" rel="stylesheet"/>
+    <link rel="shortcut icon" href="{% static 'cats/images/cat_logo.png' %}" type="image/x-icon"/>
+</head>
+<body>
+
+{% block mainmenu %}
+<div class="header">
+    <ul id="mainmenu" class="mainmenu">
+        <li class="logo"><a href="{% url 'cats' %}">
+            <div class="logo"></div>
+        </a></li>
+        {% if request.user.is_authenticated %}
+        <li><a href="{% url 'add_cat' %}">Добавить кота</a></li>
+        {% endif %}
+
+        {% block extramenu %}
+        {% endblock extramenu %}
+
+        {% if request.user.is_authenticated %}
+        <li class="last">{{ user.username }} | <a href="{% url 'logout' %}">Выйти</a></li>
+        {% else %}
+        <li class="last"><a href="{% url 'login' %}">Войти</a> | <a href="{% url 'register' %}">Регистрация</a></li>
+        {% endif %}
+    </ul>
+    <div class="clear"></div>
+</div>
+{% endblock mainmenu %}
+
+{% block content %}
+
+{% endblock content %}
+</body>
+</html>

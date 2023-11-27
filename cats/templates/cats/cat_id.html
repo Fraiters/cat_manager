@@ -1,0 +1,46 @@
+{% extends 'cats/base.html' %}
+
+{% block extramenu %}
+    {% if cat.author == request.user.username %}
+        <li><a href="{% url 'upd_cat' cat.slug %}">Редактировать</a></li>
+        <li><a href="{% url 'del_cat' cat.slug %}">Удалить</a></li>
+    {% endif %}
+{% endblock extramenu %}
+
+{% block content %}
+<h1>{{ cat.name }}</h1>
+
+<ul>
+    {% if cat.photo %}
+        <li>
+            <h2>Фото:
+                <br>
+                <img src="{{ cat.photo.url }}">
+            </h2>
+            <hr>
+        </li>
+    {% endif %}
+    <li>
+        <h2>Возраст: {{ cat.age }}</h2>
+        <hr>
+    </li>
+    <li>
+        <h2>Порода: {{ cat.breed }}</h2>
+        <hr>
+    </li>
+    <li>
+        <h2>Вес: {{ cat.weight }}кг</h2>
+        <hr>
+    </li>
+        <li>
+        <h2>Описание: {{ cat.description|linebreaks }}</h2>
+        <hr>
+    </li>
+    </li>
+        <li>
+        <h2>Автор: {{ cat.author }}</h2>
+        <hr>
+    </li>
+</ul>
+
+{% endblock content %}
