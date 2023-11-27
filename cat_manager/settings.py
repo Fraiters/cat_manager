@@ -15,7 +15,6 @@ from pathlib import Path
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
@@ -26,8 +25,7 @@ SECRET_KEY = 'django-insecure-(g7(ezf7%(aom=-ktemp#r1jfrs218f8f1ef@)bp_*d&=a!d*v
 DEBUG = True
 
 # ALLOWED_HOSTS = ['127.0.0.1']
-ALLOWED_HOSTS = ['catmanager-production.up.railway.app']
-
+ALLOWED_HOSTS = ['catmanager-production.up.railway.app', '127.0.0.1']
 
 # Application definition
 
@@ -81,7 +79,6 @@ DATABASES = {
     }
 }
 
-
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
 
@@ -100,7 +97,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
 
@@ -112,7 +108,6 @@ USE_I18N = True
 
 USE_TZ = True
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
@@ -121,7 +116,9 @@ USE_TZ = True
 # STATICFILES_DIRS = []
 
 STATIC_URL = 'static/'
-STATICFILES_DIRS = [os.path.join(BASE_DIR, "staticfiles")]
+STATICFILES_DIRS = [os.path.join(BASE_DIR, "static/cats"),
+                    os.path.join(BASE_DIR, "staticfiles"),
+                    ]
 STATIC_ROOT = os.path.join(BASE_DIR, "static")
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
