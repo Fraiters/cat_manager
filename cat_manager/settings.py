@@ -24,7 +24,6 @@ SECRET_KEY = 'django-insecure-(g7(ezf7%(aom=-ktemp#r1jfrs218f8f1ef@)bp_*d&=a!d*v
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-# ALLOWED_HOSTS = ['127.0.0.1']
 ALLOWED_HOSTS = ['catmanager-production.up.railway.app', '127.0.0.1']
 
 # Application definition
@@ -113,15 +112,11 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-# STATIC_URL = 'static/'
-# STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-# STATICFILES_DIRS = []
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-STATICFILES_STORAGE="whitenoise.storage.CompressedManifestStaticFilesStorage"
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-# Default primary key field type
-# https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
+CSRF_TRUSTED_ORIGINS = ['https://catmanager-production.up.railway.app/']
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
