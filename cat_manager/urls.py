@@ -16,11 +16,9 @@ Including another URLconf
 """
 from django.conf.urls.static import static
 from django.contrib import admin
-from django.template.defaulttags import url
 from django.urls import path, include
 from cats.views import *
-from cat_manager.settings import DEBUG, MEDIA_URL, MEDIA_ROOT, STATIC_URL, STATIC_ROOT
-from  django.views.static import serve as mediaserve
+from cat_manager.settings import DEBUG, MEDIA_URL, MEDIA_ROOT
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -35,11 +33,3 @@ if DEBUG:
 
     mimetypes.add_type("application/javascript", ".js", True)
     urlpatterns += static(MEDIA_URL, document_root=MEDIA_ROOT)
-
-else:
-    urlpatterns += [
-        url(f'^{MEDIA_URL.lstrip("/")}(?P<path>.*)$',
-            mediaserve, {'document_root': MEDIA_ROOT}),
-        url(f'^{STATIC_URL.lstrip("/")}(?P<path>.*)$',
-            mediaserve, {'document_root': STATIC_ROOT}),
-    ]
