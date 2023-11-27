@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-(g7(ezf7%(aom=-ktemp#r1jfrs218f8f1ef@)bp_*d&=a!d*v
 DEBUG = True
 
 # ALLOWED_HOSTS = ['127.0.0.1']
-ALLOWED_HOSTS = ['https://catmanager-production.up.railway.app/']
+ALLOWED_HOSTS = ['catmanager-production.up.railway.app']
 
 
 # Application definition
