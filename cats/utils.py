@@ -26,7 +26,8 @@ class CatManagerData:
         """ Сопоставляет slug - имя кота """
         view_obj.object = form.save()
         cat_name = str(view_obj.object.name).lower()
-        translate_cat_name = translit(cat_name, 'ru', reversed=True)
+        union_cat_name = "".join(cat_name.split())
+        translate_cat_name = translit(union_cat_name, 'ru', reversed=True)
         # slug = перевод имени кота + '-' + id кота
         view_obj.object.slug = translate_cat_name + "-" + str(view_obj.object.id)
 
