@@ -1,0 +1,12 @@
+services:
+    python:
+        restart: always
+        build:
+            context: .
+            dockerfile: Dockerfile
+        expose:
+          - 8000
+        ports:
+            - 8000:8000
+
+        command: "gunicorn cat_manager.wsgi:application --bind 0.0.0.0:8000"
