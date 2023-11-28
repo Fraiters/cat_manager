@@ -45,3 +45,6 @@
 # ЗАПУСК:
 - ## Локальный запуск: http://127.0.0.1:8000/cats/
 - ## Запуск на сервере: https://catmanager-production.up.railway.app/cats/
+- ## Запуск через докер: (поддерживает только локальный url)
+  - ## 1) Сборка - `docker-compose build`
+  - ## 2) Запуск - `docker-compose up`
